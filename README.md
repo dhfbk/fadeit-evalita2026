@@ -33,7 +33,7 @@ where:
 - `$POST_DATE`: the date of the post (*YYYY-MM*);
 - `$POST_TOPIC_KEYWORDS`: the set in which the keyword that led to the post selection belongs (*migration*, *climate change*, or *public health*);
 - `$POST_TEXT`: the text of the post (anonymized with [USER], [URL], [EMAIL], and [PHONE] placeholders);
-- `$LABELS_BY_ANN_j`: the fallacy label(s) assigned by annotator *j* for the post (e.g., "Vagueness", "Strawman"). In the case where multiple labels for the post are assigned by the same annotator *j*, these are separated by a pipe (|) and ordered lexicographically, e.g., "Strawman|Vagueness". In the case where no labels for the post are assigned by the same annotator j, the label is empty.
+- `$LABELS_BY_ANN_j`: the fallacy label(s) assigned by annotator *j* for the post (e.g., "Vagueness", "Strawman"). In the case where multiple labels for the post are assigned by the same annotator *j*, these are separated by a pipe (|) and ordered lexicographically, e.g., "Strawman|Vagueness". In the case where no labels for the post are assigned by the same annotator *j*, the label is empty.
 
 An example of a post for subtask A is available on the [FadeIT shared task website](https://sites.google.com/fbk.eu/fadeit2026/data).
 
@@ -60,7 +60,7 @@ where:
 - `$POST_TEXT`: the text of the post (anonymized with [USER], [URL], [EMAIL], and [PHONE] placeholders);
 - `$TOKEN_i`: the index of the token within the post (*incremental integer*);
 - `$TOKEN_i_TEXT`: the text of the *i*-th token within the post;
-- `$TOKEN_i_LABELS_BY_ANN_j`: the fallacy label(s) assigned by annotator *j* for the *i*-th token within the post. Each label follows the format `$BIO`-`$LABEL`, where `$BIO` is the BIO tag and `$LABEL` is the fallacy label (e.g., "Vagueness", "Strawman"), e.g., "B-Vagueness", "I-Strawman", and "O". In the case where multiple labels for the *i*-th token are assigned by the same annotator *j*, these are separated by a pipe (|) and ordered lexicographically by `$LABEL`, e.g., "I-Strawman|B-Vagueness". In the case where no labels for the i-th token are assigned by the same annotator j, the label is "O".
+- `$TOKEN_i_LABELS_BY_ANN_j`: the fallacy label(s) assigned by annotator *j* for the *i*-th token within the post. Each label follows the format `$BIO`-`$LABEL`, where `$BIO` is the BIO tag and `$LABEL` is the fallacy label (e.g., "Vagueness", "Strawman"), e.g., "B-Vagueness", "I-Strawman", and "O". In the case where multiple labels for the *i*-th token are assigned by the same annotator *j*, these are separated by a pipe (|) and ordered lexicographically by `$LABEL`, e.g., "I-Strawman|B-Vagueness". In the case where no labels for the *i*-th token are assigned by the same annotator *j*, the label is "O".
 
 An example of a post for subtask B is available on the [FadeIT shared task website](https://sites.google.com/fbk.eu/fadeit2026/data).
 
@@ -69,7 +69,7 @@ An example of a post for subtask B is available on the [FadeIT shared task websi
 
 ### :rocket: Submission requirements
 
-Test data to be used for coarse-grained or fine-grained subtasks (`test.tsv` and `test.conll`, respectively) will be made available on **November 3, 2025** and participants can submit their predictions during the evaluation window (i.e., **November 3-17, 2025**). Test set results and the overall systems' ranking will be communicated to participants by November 20th, 2025.
+Test data to be used for coarse-grained or fine-grained subtasks (`test.tsv` and `test.conll`, respectively) will be made available on **November 3, 2025** and participants can submit their predictions during the evaluation window (i.e., **November 3-17, 2025**). Test set results and the overall systems' ranking will be communicated to participants by November 20th, 2025 (see [important dates](#alarm_clock-important-dates)).
 
 We allow participants to submit **up to 3 runs for each subtask** (i.e., a team participating in all subtasks will be able to submit up to a total of 6 runs, of which up to 3 for each subtask). Different runs can reflect e.g., different solutions or different configurations of the same system.
 
@@ -125,12 +125,12 @@ If your system produces a single prediction for each token (either using or not 
 
 **[2]** Compress all your run files as a ZIP file named `TEAM.zip` (where TEAM is the name of your team).
 
-**[3]** Send an email to fadeit2026@gmail.com with subject **FadeIT: TEAM submission** attaching `TEAM.zip`.
+**[3]** Send an email to fadeit2026[at]gmail[dot]com with subject **FadeIT: TEAM submission** attaching `TEAM.zip`.
 
 
 ### :bar_chart: Evaluation and scorer
 
-Predictions will be evaluated according to micro **F1 score** (Subtask A) and micro **F1 score (*soft evaluation*)** (Subtask B, see details on the evaluation on the [FadeIT shared task website](https://sites.google.com/fbk.eu/fadeit2026/task-description). We will provide participants with a scorer (i.e., `eval.py`) on **September 22, 2025**. The usage is the following:
+Predictions will be evaluated according to micro **F1 score** (Subtask A) and micro **F1 score (*soft evaluation*)** (Subtask B, see details on the evaluation on the [FadeIT shared task website](https://sites.google.com/fbk.eu/fadeit2026/task-description)). We will provide participants with a scorer (i.e., `eval.py`) on **September 22, 2025**. The usage is the following:
 
 ```
 python eval.py -S $SUBTASK -G $GOLD_FILEPATH -P $PRED_FILEPATH
