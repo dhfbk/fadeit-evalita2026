@@ -13,12 +13,12 @@ This repository contains useful materials related to the [FadeIT shared task](ht
 
 ### :page_with_curl: Get the data
 
-If you are interested in participating in the FadeIT shared task, **please write to us at fadeit2026[at]gmail[dot]com indicating provisional team members and the subtasks of potential interest**. We will send to you the link to join the dedicated Google Group, where you can keep in touch with us and ask any shared task-related questions. You will also find information about how to obtain the data (from September 22th, 2025).
+If you are interested in participating in the FadeIT shared task, **please write to us at fadeit2026[at]gmail[dot]com indicating provisional team members and the subtasks of potential interest**. We will send to you the link to join the dedicated Google Group, where you can keep in touch with us and ask any shared task-related questions. You will also find information about how to obtain the data (from September 22, 2025).
 
 
 ### :triangular_ruler: Data format
 
-We provide `train-dev.tsv` and `train-dev.conll` for **Subtask A** and **Subtask B**, respectively, following the format described below. Test data for both subtasks (`test.tsv` and `test.conll`) will be available during the evaluation window (i.e., November 3-17, 2025).
+We provide `train-dev.tsv` and `train-dev.conll` for **Subtask A** and **Subtask B**, respectively, following the format described below. Test data for both subtasks (`test.tsv` and `test.conll`) will be available during the evaluation window (i.e., November 27 - December 4, 2025).
 
 #### Subtask A: *Coarse-grained* fallacy detection
 
@@ -46,7 +46,7 @@ The data format is based on the CoNLL format. Each post is separated by a blank 
 ```
 # post_id = $POST_ID
 # post_date = $POST_DATE
-# post_topic_keywords = $POST_TOPIC
+# post_topic_keywords = $POST_TOPIC_KEYWORDS
 # post_text = $POST_TEXT
 $TOKEN_1      $TOKEN_1_TEXT      $TOKEN_1_LABELS_BY_ANN_A      $TOKEN_1_LABELS_BY_ANN_B
 ...
@@ -69,7 +69,7 @@ An example of a post for subtask B is available on the [FadeIT shared task websi
 
 ### :rocket: Submission requirements
 
-Test data to be used for coarse-grained or fine-grained subtasks (`test.tsv` and `test.conll`, respectively) will be made available on **November 3, 2025** and participants can submit their predictions during the evaluation window (i.e., **November 3-17, 2025**). Test set results and the overall systems' ranking will be communicated to participants by November 20th, 2025 (see [important dates](#alarm_clock-important-dates)).
+Test data to be used for coarse-grained or fine-grained subtasks (`test.tsv` and `test.conll`, respectively) will be made available on **November 27, 2025** and participants can submit their predictions during the evaluation window (i.e., **November 27 - December 4, 2025**). Test set results and the overall systems' ranking will be communicated to participants by December 15, 2025 (see [important dates](#alarm_clock-important-dates)).
 
 We allow participants to submit **up to 3 runs for each subtask** (i.e., a team participating in all subtasks will be able to submit up to a total of 6 runs, of which up to 3 for each subtask). Different runs can reflect e.g., different solutions or different configurations of the same system.
 
@@ -148,10 +148,11 @@ Baselines for both *coarse-grained* and *fine-grained fallacy detection* subtask
 ### :alarm_clock: Important dates
 
 - **September 22, 2025** – Data (train/dev) and evaluation scorer are provided to participants
-- **November 3-17, 2025** – Evaluation window: participants submit predictions on the test data
-- **December 1, 2025** – Submission deadline for system description papers by participants
-- **December 15, 2025** – Notification of acceptance of system description papers to participants
-- **January 12, 2026** – Camera-ready version of system description papers due
+- **November 27 - December 4, 2025** – Evaluation window: participants submit predictions on the test data
+- **December 15, 2025** – Official results for submitted runs available to participants
+- **January 9, 2026** – Submission deadline for system description papers by participants
+- **February 7, 2026** – Notification of acceptance of system description papers to participants
+- **February 16, 2026** – Camera-ready version of system description papers due
 - **February 26-27, 2026** – [EVALITA 2026 Workshop](https://www.evalita.it/campaigns/evalita-2026/) in Bari, Italy
 
 ### Citation
