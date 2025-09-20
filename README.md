@@ -13,7 +13,7 @@ This repository contains useful materials related to the [FadeIT shared task](ht
 
 ### :page_with_curl: Get the data
 
-If you are interested in participating in the FadeIT shared task, **please write to us at fadeit2026[at]gmail[dot]com indicating provisional team members and the subtasks of potential interest**. We will send to you the link to join the dedicated Google Group, where you can keep in touch with us and ask any shared task-related questions. You will also find information about how to obtain the data (from September 22, 2025).
+If you are interested in participating in the FadeIT shared task, **please write to us at fadeit2026[at]gmail[dot]com indicating provisional team members and the subtasks of potential interest**. We will send to you the link to join the dedicated Google Group, where you can keep in touch with us and ask any shared task-related questions. You will also find information about how to obtain the data.
 
 
 ### :triangular_ruler: Data format
@@ -210,12 +210,12 @@ We use the ***multi-view, multi-decoder*** (`MVMD`) model introduced in [Ramponi
   </tr>
 </table>
 
-Note that for subtask B, we will conder the F1 score in the *Soft mode* as the official metric for ranking systems.
+Note that for subtask B, we will consider the F1 score in the *Soft mode* as the official metric for ranking systems.
 
 
 ### :alarm_clock: Important dates
 
-- **September 22, 2025** – Data (train/dev) and evaluation scorer are provided to participants
+- ~~**September 22, 2025** – Data (train/dev) and evaluation scorer are provided to participants~~
 - **November 27 - December 4, 2025** – Evaluation window: participants submit predictions on the test data
 - **December 15, 2025** – Official results for submitted runs available to participants
 - **January 9, 2026** – Submission deadline for system description papers by participants
