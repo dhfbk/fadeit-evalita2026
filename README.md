@@ -130,7 +130,7 @@ If your system produces a single prediction for each token (either using or not 
 
 ### :bar_chart: Evaluation and scorer
 
-Predictions will be evaluated according to micro **F1 score** (Subtask A) and micro **F1 score (*soft evaluation*)** (Subtask B, see details on the evaluation on the [FadeIT shared task website](https://sites.google.com/fbk.eu/fadeit2026/task-description)). We will provide participants with a scorer (i.e., `eval.py`) on **September 22, 2025**. The usage is the following:
+Predictions will be evaluated according to micro **F1 score** (Subtask A) and micro **F1 score (*soft evaluation*)** (Subtask B, see details on the evaluation on the [FadeIT shared task website](https://sites.google.com/fbk.eu/fadeit2026/task-description)). We provide participants with a scorer (i.e., `eval.py`). The usage is the following:
 
 ```
 python eval.py -S $SUBTASK -G $GOLD_FILEPATH -P $PRED_FILEPATH
@@ -139,10 +139,78 @@ python eval.py -S $SUBTASK -G $GOLD_FILEPATH -P $PRED_FILEPATH
 - `$GOLD_FILEPATH`: Path to the file that contains the gold standard(s) for the subtask.
 - `$PRED_FILEPATH`: Path to the file that contains the predictions for the subtask, with the same format as `$GOLD_FILEPATH`.
 
+For instance, you can get the scores for subtask A by running the following (where `my-dev-gold.tsv` is a split of your choice that you have created starting from the original `train-dev.tsv` file, and `my-dev-pred.tsv` the corresponding prediction file):
+
+```
+python eval.py -S A -G my-dev-gold.tsv -P my-dev-pred.tsv
+```
+
+For subtask B, you can instead running the following (where `my-dev-gold.conll` is a split of your choice that you have created starting from the original `train-dev.conll` file, and `my-dev-pred.conll` the corresponding prediction file):
+
+```
+python eval.py -S B -G my-dev-gold.conll -P my-dev-pred.conll
+```
+
 
 ### :pushpin: Baselines
 
-Baselines for both *coarse-grained* and *fine-grained fallacy detection* subtasks will be provided to participants on **September 22, 2025** – i.e., when data (train/dev) and evaluation scorer will be released.
+Baseline results for both *coarse-grained* and *fine-grained fallacy detection* subtasks are provided below.
+
+#### Subtask A: *Coarse-grained* fallacy detection
+
+We use the ***multi-view, multi-label*** (`MVML`) model introduced in [Ramponi et al. (2025)](https://aclanthology.org/2025.naacl-long.34/). The model relies on a shared encoder ([`umberto`](https://huggingface.co/Musixmatch/umberto-commoncrawl-cased-v1)) and uses `D=|A|` decoders (one for each annotation view, i.e., for the labels assigned by each annotator) and outputs `D` sets of predicted labels containing all fallacy labels that exceed a threshold `τ` (with `τ=0.7`). The scores on the **test set** are the following:
+
+<table>
+  <tr>
+    <td></td>
+    <td align=center><i>Encoder</i></td>
+    <td align=center><b>P</b></td>
+    <td align=center><b>R</b></td>
+    <td align=center><b>F1</b></td>
+  </tr>
+  <tr>
+    <td><b>MVML model</b></td>
+    <td align=center>UmBERTo</td>
+    <td align=center>38.53</td>
+    <td align=center>14.28</td>
+    <td align=center><b>20.84</b></td>
+  </tr>
+</table>
+
+#### Subtask B: *Fine-grained* fallacy detection
+
+We use the ***multi-view, multi-decoder*** (`MVMD`) model introduced in [Ramponi et al. (2025)](https://aclanthology.org/2025.naacl-long.34/). The model relies on a shared encoder ([`umberto`](https://huggingface.co/Musixmatch/umberto-commoncrawl-cased-v1)) and uses a separate decoder for each annotator view `A` and fallacy type `F` (i.e., `D = |A × F|`) and outputs `D` sets of predicted labels (i.e., either `B`, `I`, or `O` for each fallacy label and annotator view). All decoders are given equal importance in the computation of the multi-task learning loss. The scores on the **test set** are the following:
+
+<table>
+  <tr>
+    <td></td>
+    <td></td>
+    <td colspan=3 align=center><i>Strict mode</i></td>
+    <td colspan=3 align=center><i>Soft mode</i></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td align=center><i>Encoder</i></td>
+    <td align=center><b>P</b></td>
+    <td align=center><b>R</b></td>
+    <td align=center><b>F1</b></td>
+    <td align=center><b>P</b></td>
+    <td align=center><b>R</b></td>
+    <td align=center><b>F1</b></td>
+  </tr>
+  <tr>
+    <td><b>MVMD model</b></td>
+    <td align=center>UmBERTo</td>
+    <td align=center>60.94</td>
+    <td align=center>3.05</td>
+    <td align=center>5.80</td>
+    <td align=center>65.97</td>
+    <td align=center>3.28</td>
+    <td align=center><b>6.25</b></td>
+  </tr>
+</table>
+
+Note that for subtask B, we will conder the F1 score in the *Soft mode* as the official metric for ranking systems.
 
 
 ### :alarm_clock: Important dates
